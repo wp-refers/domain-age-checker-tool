@@ -1,0 +1,56 @@
+{
+    "packages": [
+        {
+            "name": "phois/whois",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/regru/php-whois.git",
+                "reference": "1b321ec3551ac54cc790f8a5d7945ff5bc8a916c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/regru/php-whois/zipball/1b321ec3551ac54cc790f8a5d7945ff5bc8a916c",
+                "reference": "1b321ec3551ac54cc790f8a5d7945ff5bc8a916c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.2"
+            },
+            "time": "2016-06-16T06:23:22+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Phois\\Whois": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Rivera",
+                    "email": "David.R.Rivera193@gmail.com",
+                    "homepage": "http://www.protodx.com",
+                    "role": "Systems Developer"
+                }
+            ],
+            "description": "Whois client.",
+            "keywords": [
+                "whois"
+            ],
+            "support": {
+                "issues": "https://github.com/regru/php-whois/issues",
+                "source": "https://github.com/regru/php-whois/tree/master"
+            },
+            "install-path": "../phois/whois"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

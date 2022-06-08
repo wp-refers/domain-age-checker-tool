@@ -1,0 +1,18 @@
+{
+    "name": "wprefers/domain-age-checker-tool",
+    "autoload": {
+        "psr-4": {
+            "WPRefers\\DomainAgeCheckerTool\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sachin Rai",
+            "email": "sachinkiranti@gmail.com"
+        }
+    ],
+    "require": {
+        "phois/whois": "dev-master"
+    },
+    "minimum-stability": "dev"
+}
