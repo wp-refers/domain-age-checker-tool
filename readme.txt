@@ -23,8 +23,8 @@ Features :
 
 ## Quick Links
 
-- Tutorial: [Domain Age Checker Tool](https://wprefers.com/domain-age-checker/)
-- Demo: [https://wprefers.com/domain-age-checker/](https://wprefers.com/domain-age-checker/)
+- Tutorial: [Domain Age Checker Tool](https://wprefers.com/how-to-check-the-domain-expiry-date/)
+- Demo: [https://wprefers.com/how-to-check-the-domain-expiry-date/](https://wprefers.com/how-to-check-the-domain-expiry-date/)
 - [Buy me a coffee](https://www.buymeacoffee.com/sachinkiranti)
 
 == Installation ==
