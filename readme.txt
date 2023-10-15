@@ -3,7 +3,7 @@ Contributors: wprefers
 Tags: Domain Age, Domain Expiry Date, Domain Information, whoisapi
 Donate link: https://www.buymeacoffee.com/sachinkiranti
 Requires at least: 5.0
-Tested up to: 6.0
+Tested up to: 6.3
 Requires PHP: 5.6
 Stable tag: 1.0.0
 License: GNU General Public License v3.0
@@ -20,6 +20,7 @@ Features :
 2. Show domain registered date
 3. Show domain last updated date
 4. Show domain expiry date
+5. Show your domain info in dashboard widget
 
 ## Quick Links
 
@@ -54,5 +55,9 @@ No, you don't have to do anything. Just install and activate the plugin.
 1. The working demo image of the plugin
 
 == Changelog ==
+= 1.0.1 - 2023-10-15
+* Feat: Added Dashboard widget for your domain.
+* Feat: Cache info of your domain.
+* Fixed: minor issues
 = 1.0.0 =
 * Initial release.
