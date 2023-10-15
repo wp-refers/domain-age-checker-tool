@@ -7,18 +7,15 @@ class DomainAgeCheckerTool
 
     public function __construct()
     {
-        // Add Javascript and CSS for front-end display
         add_action('wp_enqueue_scripts', array( $this, 'enqueue' ));
 
-        // Add the shortcode for front-end form display
         add_action( 'init', array( $this, 'add_shortcode' ) );
-        // Add ajax function that will receive the call back for logged in users
         add_action( 'wp_ajax_domain_age_checker_xhr_action', array( $this, 'domain_age_checker_xhr_action') );
-        // Add ajax function that will receive the call back for guest or not logged in users
         add_action( 'wp_ajax_nopriv_domain_age_checker_xhr_action', array( $this, 'domain_age_checker_xhr_action') );
 
-        // Add shortcode support for widgets
         add_filter('widget_text', 'do_shortcode');
+
+        $DashboardWidget = new DomainAgeDashboardWidget();
     }
 
     public function enqueue()
@@ -57,9 +54,6 @@ class DomainAgeCheckerTool
 
             // only 5 domains
             if ($count < 5) {
-                // remove http/https
-                $domain = preg_replace( 
-                    "#^[^:/.]*[:/]+#i", "", preg_replace( "{/$}", "", urldecode( $domain ) ) );
                 $response[] = (new WhoisApi())->getInfo(
                     str_replace('www.', '', $domain)
                 );

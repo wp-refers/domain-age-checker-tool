@@ -15,8 +15,15 @@ class WhoisApi
             'domain_name',
             'creation_date',
             'last_update_of_whois_database',
-            'registry_expiry_date'
+            'registry_expiry_date',
+            'registrar'
         );
+        
+        $domain = $this->parseDomain($domain);
+
+        if (!$this->isValidDomain($domain)) {
+            return $response;
+        }
 
         $data = $this->crawl($domain);
 
@@ -25,6 +32,7 @@ class WhoisApi
 
                 $value = trim(strip_tags(html_entity_decode($value)));
                 switch ($key) {
+                    case 'registrar':
                     case 'domain_name':
                         $formattedVal = strtolower($value);
                         break;
@@ -35,7 +43,7 @@ class WhoisApi
                 $response[$key] = $formattedVal;
 
                 if ($key === 'creation_date') {
-                    $response['age'] = $this->getDate($value);
+                    $response['age'] = $this->getAge($value);
                 }
             }
         }
@@ -66,7 +74,7 @@ class WhoisApi
         return $result;
     }
 
-    public function getDate($date)
+    public function getAge($date)
     {
         $time = time() - strtotime($date);
 
@@ -89,6 +97,34 @@ class WhoisApi
             $d = $days . " days";
         }
         return "$y, $d";
+    }
+
+    private function parseDomain($domain)
+    {
+        $domain = rtrim($domain, '/');
+
+        $parsed_url = parse_url($domain);
+
+        if (isset($parsed_url['host'])) {
+            $main_domain = $parsed_url['host'];
+        } else {
+            // If the host is not set, try extracting the domain from the path
+            $path_parts = explode('/', $parsed_url['path']);
+            $main_domain = isset($path_parts[0]) ? $path_parts[0] : null;
+        }
+        return $main_domain;
+    }
+
+    private function isValidDomain($domain)
+    {
+        // Remove leading and trailing spaces
+        $domain = trim($domain);
+
+        // Define a regular expression pattern for a valid domain
+        $pattern = '/^(?:(?![_.-])[a-zA-Z0-9_.-]{1,63}(?<![_.-])\.)+[a-zA-Z.]{2,10}$/';
+
+        // Use preg_match to check if the string matches the pattern
+        return preg_match($pattern, $domain);
     }
 
 }
