@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 This plugin helps to get the domain information.
 
 == Description ==
-The plugin plugin allows you to check the age of multiple domains with registered date, last updated date and expiry date provided by whoisapi.
+The plugin allows you to check the age of multiple domains with registered date, last updated date and expiry date provided by whoisapi.
 
 Features :
 
